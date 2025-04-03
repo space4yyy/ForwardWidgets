@@ -67,7 +67,9 @@ function extractWidgetMetadata(filePath) {
     // 提取所需字段
     const { id, title, description, requiredVersion, version, author } = metadata;
     
-    return { id, title, description, requiredVersion, version, author };
+    const url = `https://raw.githubusercontent.com/pack1r/ForwardWidgets/refs/heads/main/widgets/${fileName}`
+
+    return { id, title, description, requiredVersion, version, author, url };
   } catch (error) {
     console.error(`处理文件 ${filePath} 时出错:`, error);
     return null;
