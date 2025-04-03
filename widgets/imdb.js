@@ -2,8 +2,8 @@ WidgetMetadata = {
   id: "imdb",
   title: "IMDB",
   description: "IMDB",
-  author: "Forward",
-  site: "https://baidu.com",
+  author: "pack1r",
+  site: "https://github.com/pack1r/ForwardWidgets",
   version: "1.0.0",
   requiredVersion: "0.0.1",
   modules: [
