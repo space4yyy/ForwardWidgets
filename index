@@ -1,0 +1,18 @@
+[
+  {
+    "id": "douban",
+    "title": "豆瓣",
+    "description": "解析豆瓣片单，获取视频信息",
+    "requiredVersion": "0.0.1",
+    "version": "1.0.0",
+    "author": "pack1r"
+  },
+  {
+    "id": "imdb",
+    "title": "IMDB",
+    "description": "IMDB",
+    "requiredVersion": "0.0.1",
+    "version": "1.0.0",
+    "author": "pack1r"
+  }
+]
