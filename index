@@ -5,7 +5,8 @@
     "description": "解析豆瓣片单，获取视频信息",
     "requiredVersion": "0.0.1",
     "version": "1.0.0",
-    "author": "pack1r"
+    "author": "pack1r",
+    "url": "https://raw.githubusercontent.com/pack1r/ForwardWidgets/refs/heads/main/widgets/douban.js"
   },
   {
     "id": "imdb",
@@ -13,6 +14,7 @@
     "description": "IMDB",
     "requiredVersion": "0.0.1",
     "version": "1.0.0",
-    "author": "pack1r"
+    "author": "pack1r",
+    "url": "https://raw.githubusercontent.com/pack1r/ForwardWidgets/refs/heads/main/widgets/imdb.js"
   }
 ]
