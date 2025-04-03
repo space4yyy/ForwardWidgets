@@ -1,12 +1,5 @@
 name: Generate Widget Index
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  workflow_dispatch:
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -23,12 +16,12 @@ jobs:
       run: npm install
       
     - name: Generate Widget Index
-      run: node .github/scripts/generate-widget-index.js
+      run: node generate-widget-index.js
       
     - name: Commit changes
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add index.json
+        git add index
         git commit -m "Update widget index" || echo "No changes to commit"
         git push
