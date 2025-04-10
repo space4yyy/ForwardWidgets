@@ -1,6 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 
+const MODULE_TITLE = 'Space4yyy\'s Widgets';
+const MODULE_DESCRIPTION = 'created by Space4yyy';
+const MODULE_ICON = 'https://github.com/Space4yyy/ForwardWidgets/raw/main/icon.png';
+
 // 配置目录路径
 const WIDGETS_DIR = './widgets'; // 调整为你的小部件目录路径
 const OUTPUT_FILE = './Space4yyy.fwd';
@@ -94,9 +98,9 @@ async function main() {
     // 处理每个文件并提取元数据
     const widgetIndex = files.map(extractWidgetMetadata).filter(Boolean);
     const metadata = {
-      title: 'Space4yyy\'s Widgets',
-      description: 'A collection of widgets created by Space4yyy',
-      icon: 'https://github.com/Space4yyy/ForwardWidgets/raw/main/icon.png',
+      title: MODULE_TITLE,
+      description: MODULE_DESCRIPTION,
+      icon: MODULE_ICON,
       widgets: widgetIndex
     }
 
