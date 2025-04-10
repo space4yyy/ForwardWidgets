@@ -1,13 +1,13 @@
 const fs = require('fs');
 const path = require('path');
 
-const MODULE_TITLE = 'Space4yyy\'s Widgets';
-const MODULE_DESCRIPTION = 'created by Space4yyy';
+const MODULE_TITLE = 'Space4\'s Widgets';
+const MODULE_DESCRIPTION = 'created by Space4';
 const MODULE_ICON = 'https://github.com/Space4yyy/ForwardWidgets/raw/main/icon.png';
 
 // 配置目录路径
 const WIDGETS_DIR = './widgets'; // 调整为你的小部件目录路径
-const OUTPUT_FILE = './Space4yyy.fwd';
+const OUTPUT_FILE = './Space4.fwd';
 
 // 创建临时目录来存放预处理的文件
 const TEMP_DIR = path.join(__dirname, 'temp_widgets');
