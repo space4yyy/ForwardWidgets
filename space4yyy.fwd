@@ -1,0 +1,25 @@
+{
+  "title": "Space4yyy's Widgets",
+  "description": "A collection of widgets created by Space4yyy",
+  "icon": "https://github.com/Space4yyy/ForwardWidgets/raw/main/icon.png",
+  "widgets": [
+    {
+      "id": "space.readonly.bangumi",
+      "title": "Bangumi",
+      "description": "Bangumi",
+      "requiredVersion": "0.0.1",
+      "version": "1.0.0",
+      "author": "Space4",
+      "url": "https://raw.githubusercontent.com/Space4yyy/ForwardWidgets/refs/heads/main/widgets/bangumi.js"
+    },
+    {
+      "id": "space.readonly.douban",
+      "title": "豆瓣",
+      "description": "豆瓣",
+      "requiredVersion": "0.0.1",
+      "version": "1.0.0",
+      "author": "Space4",
+      "url": "https://raw.githubusercontent.com/Space4yyy/ForwardWidgets/refs/heads/main/widgets/douban.js"
+    }
+  ]
+}

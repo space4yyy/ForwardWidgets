@@ -3,7 +3,7 @@ const path = require('path');
 
 // 配置目录路径
 const WIDGETS_DIR = './widgets'; // 调整为你的小部件目录路径
-const OUTPUT_FILE = './index';
+const OUTPUT_FILE = './Space4yyy.fwd';
 
 // 创建临时目录来存放预处理的文件
 const TEMP_DIR = path.join(__dirname, 'temp_widgets');
@@ -16,10 +16,10 @@ function extractWidgetMetadata(filePath) {
   try {
     const fileName = path.basename(filePath);
     const tempFilePath = path.join(TEMP_DIR, fileName);
-    
+
     // 读取原始文件内容
     const content = fs.readFileSync(filePath, 'utf8');
-    
+
     // 创建一个临时模块，将WidgetMetadata暴露为模块导出
     const wrappedContent = `
       let exportedMetadata;
@@ -48,26 +48,26 @@ function extractWidgetMetadata(filePath) {
       
       module.exports = exportedMetadata;
     `;
-    
+
     // 写入临时文件
     fs.writeFileSync(tempFilePath, wrappedContent);
-    
+
     // 尝试导入临时模块
     const modulePath = require.resolve(tempFilePath);
     const metadata = require(modulePath);
-    
+
     // 清除缓存，这样如果再次运行时代码已更改，我们会得到新的结果
     delete require.cache[modulePath];
-    
+
     if (!metadata) {
       console.warn(`在文件 ${filePath} 中未找到WidgetMetadata`);
       return null;
     }
-    
+
     // 提取所需字段
     const { id, title, description, requiredVersion, version, author } = metadata;
-    
-    const url = `https://raw.githubusercontent.com/pack1r/ForwardWidgets/refs/heads/main/widgets/${fileName}`
+
+    const url = `https://raw.githubusercontent.com/Space4yyy/ForwardWidgets/refs/heads/main/widgets/${fileName}`
 
     return { id, title, description, requiredVersion, version, author, url };
   } catch (error) {
@@ -88,17 +88,23 @@ async function main() {
     const files = fs.readdirSync(WIDGETS_DIR)
       .filter(file => file.endsWith('.js'))
       .map(file => path.join(WIDGETS_DIR, file));
-      
+
     console.log(`找到 ${files.length} 个JS文件需要处理`);
-    
+
     // 处理每个文件并提取元数据
     const widgetIndex = files.map(extractWidgetMetadata).filter(Boolean);
-    
+    const metadata = {
+      title: 'Space4yyy\'s Widgets',
+      description: 'A collection of widgets created by Space4yyy',
+      icon: 'https://github.com/Space4yyy/ForwardWidgets/raw/main/icon.png',
+      widgets: widgetIndex
+    }
+
     console.log(`成功从 ${widgetIndex.length} 个小部件中提取元数据`);
-    
+
     // 写入索引文件
-    fs.writeFileSync(OUTPUT_FILE, JSON.stringify(widgetIndex, null, 2));
-    
+    fs.writeFileSync(OUTPUT_FILE, JSON.stringify(metadata, null, 2));
+
     console.log(`小部件索引已写入 ${OUTPUT_FILE}`);
   } finally {
     // 清理临时目录
