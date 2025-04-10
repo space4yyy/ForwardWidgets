@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const MODULE_TITLE = 'Space4\'s Widgets';
-const MODULE_DESCRIPTION = 'created by Space4';
+const MODULE_DESCRIPTION = 'Created by Space4';
 const MODULE_ICON = 'https://github.com/Space4yyy/ForwardWidgets/raw/main/icon.png';
 
 // 配置目录路径
