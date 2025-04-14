@@ -1,7 +1,9 @@
 name: Generate Widget Index
 
 on:
-  workflow_dispatch:  
+  push:
+    branches:
+      - main
 
 # 添加权限配置
 permissions:
