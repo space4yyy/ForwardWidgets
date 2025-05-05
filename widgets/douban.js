@@ -57,7 +57,6 @@ async function loadWish(params = {}) {
         const doubanIds = items.map((item) => ({
             id: item.subject.id,
             type: "douban",
-            title: item.subject.title,
         }));
         return doubanIds;
     }
