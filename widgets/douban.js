@@ -22,10 +22,10 @@ WidgetMetadata = {
                 {
                     name: "start",
                     title: "开始",
-                    type: "page",
+                    type: "offest",
                 },
                 {
-                    name: "limit",
+                    name: "count",
                     title: "每页数量",
                     type: "constant",
                     value: "20",
@@ -43,8 +43,8 @@ async function loadWish(params = {}) {
     }
 
     const start = params.start || 0;
-    const limit = params.limit || 20;
-    let pageUrl = `https://m.douban.com/rexxar/api/v2/user/${userId}/interests?start=${start}&count=${limit}`;
+    const count = params.count || 20;
+    let pageUrl = `https://m.douban.com/rexxar/api/v2/user/${userId}/interests?start=${start}&count=${count}`;
     const response = await Widget.http.get(pageUrl, {
         headers: {
             Referer: `https://m.douban.com/`,
