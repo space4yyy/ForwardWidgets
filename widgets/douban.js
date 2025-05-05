@@ -44,7 +44,7 @@ async function loadWish(params = {}) {
 
     const start = params.start || 0;
     const limit = params.limit || 20;
-    let pageUrl = `https://m.douban.com/rexxar/api/v2/user/${userId}/interests?type=movie&status=mark&start=${start}&count=${limit}&ck=TtPN&for_mobile=1`;
+    let pageUrl = `https://m.douban.com/rexxar/api/v2/user/${userId}/interests?start=${start}&count=${limit}`;
     const response = await Widget.http.get(pageUrl, {
         headers: {
             Referer: `https://m.douban.com/`,
@@ -55,7 +55,7 @@ async function loadWish(params = {}) {
     if (response.data.interests) {
         const items = response.data.interests;
         const doubanIds = items.map((item) => ({
-            id: item.id,
+            id: item.subject.id,
             type: "douban",
         }));
         return doubanIds;
