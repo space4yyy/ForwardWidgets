@@ -22,7 +22,7 @@ WidgetMetadata = {
                 {
                     name: "start",
                     title: "开始",
-                    type: "offest",
+                    type: "offset",
                 },
                 {
                     name: "count",
