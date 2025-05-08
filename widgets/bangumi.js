@@ -59,7 +59,7 @@ async function loadCalendar(params = {}) {
     try {
         const response = await Widget.http.get("https://bangumi.space4.workers.dev/calendar");
         if (response.data) {
-            const weekday = params.day || 0;
+            const weekday = Number(params.day) || 0;
             const data = response.data;
             return data[weekday].items.map((bangumi) => ({
                 id: `tv.${bangumi.tmdb_id}`,
