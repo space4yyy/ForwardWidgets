@@ -4,7 +4,7 @@ WidgetMetadata = {
     description: "Bangumi",
     author: "Space4",
     site: "https://github.com/space4yyy",
-    version: "1.0.0",
+    version: "1.0.1",
     requiredVersion: "0.0.1",
     modules: [
         {
@@ -18,7 +18,6 @@ WidgetMetadata = {
                     title: "选择星期",
                     type: "enumeration",
                     description: "枚举",
-                    value: 0,
                     enumOptions: [
                         {
                             title: "星期一",
