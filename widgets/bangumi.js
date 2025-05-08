@@ -28,7 +28,7 @@ async function loadCalendar() {
                 ...data.slice(0, currentDayIndex),
             ];
             const bangumiIds = reorderdData.flatMap((item) => item.items.map((bangumi) => ({
-                id: bangumi.tmdb_id,
+                id: `tv.${bangumi.tmdb_id}`,
                 type: "tmdb",
             })));
             return bangumiIds;
