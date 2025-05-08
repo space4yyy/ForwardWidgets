@@ -29,7 +29,7 @@ async function loadCalendar() {
             ];
             const bangumiIds = reorderdData.flatMap((item) => item.items.map((bangumi) => ({
                 id: bangumi.tmdb_id,
-                type: "imdb",
+                type: "tmdb",
             })));
             return bangumiIds;
         } else {
