@@ -18,7 +18,7 @@ WidgetMetadata = {
 
 async function loadCalendar() {
     try {
-        const response = await Widget.http.get("https://api.bgm.tv/calendar");
+        const response = await Widget.http.get("https://my-first-worker.space4.workers.dev/calendar");
         if (response.data) {
             const data = response.data;
             let currentDayIndex = (new Date()).getDay();
@@ -28,10 +28,8 @@ async function loadCalendar() {
                 ...data.slice(0, currentDayIndex),
             ];
             const bangumiIds = reorderdData.flatMap((item) => item.items.map((bangumi) => ({
-                id: bangumi.url,
-                type: "url",
-                title: bangumi.name_cn,
-                coverUrl: bangumi.images?.common,
+                id: bangumi.tmdb_id,
+                type: "tmdb",
             })));
             return bangumiIds;
         } else {
