@@ -8,30 +8,63 @@ WidgetMetadata = {
     requiredVersion: "0.0.1",
     modules: [
         {
-            title: "每日放送",
-            description: "bangumi每日放送，重新排序，今天放在最前面",
+            title: "bangumi每日放送",
+            description: "bangumi每日放送表",
             requiresWebView: false,
             functionName: "loadCalendar",
+            params: [
+                {
+                    name: "day",
+                    title: "选择星期",
+                    type: "enumeration",
+                    description: "枚举",
+                    value: 0,
+                    enumOptions: [
+                        {
+                            title: "星期一",
+                            value: 0
+                        },
+                        {
+                            title: "星期二",
+                            value: 1
+                        },
+                        {
+                            title: "星期三",
+                            value: 2
+                        },
+                        {
+                            title: "星期四",
+                            value: 3
+                        },
+                        {
+                            title: "星期五",
+                            value: 4
+                        },
+                        {
+                            title: "星期六",
+                            value: 5
+                        },
+                        {
+                            title: "星期日",
+                            value: 6
+                        }
+                    ]
+                },
+            ]
         }
     ]
 }
 
-async function loadCalendar() {
+async function loadCalendar(params = {}) {
     try {
-        const response = await Widget.http.get("https://my-first-worker.space4.workers.dev/calendar");
+        const response = await Widget.http.get("https://bangumi.space4.workers.dev/calendar");
         if (response.data) {
+            const weekday = params.day || 0;
             const data = response.data;
-            let currentDayIndex = (new Date()).getDay();
-            currentDayIndex = currentDayIndex === 0 ? 6 : currentDayIndex - 1;
-            const reorderdData = [
-                ...data.slice(currentDayIndex),
-                ...data.slice(0, currentDayIndex),
-            ];
-            const bangumiIds = reorderdData.flatMap((item) => item.items.map((bangumi) => ({
+            return data[weekday].items.map((bangumi) => ({
                 id: `tv.${bangumi.tmdb_id}`,
                 type: "tmdb",
-            })));
-            return bangumiIds;
+            }));
         } else {
             console.error("无法获取数据");
             throw new Error("无法获取数据");
