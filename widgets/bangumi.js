@@ -18,34 +18,35 @@ WidgetMetadata = {
                     title: "选择星期",
                     type: "enumeration",
                     description: "枚举",
+                    value: "0",
                     enumOptions: [
                         {
                             title: "星期一",
-                            value: 0
+                            value: "0"
                         },
                         {
                             title: "星期二",
-                            value: 1
+                            value: "1"
                         },
                         {
                             title: "星期三",
-                            value: 2
+                            value: "2"
                         },
                         {
                             title: "星期四",
-                            value: 3
+                            value: "3"
                         },
                         {
                             title: "星期五",
-                            value: 4
+                            value: "4"
                         },
                         {
                             title: "星期六",
-                            value: 5
+                            value: "5"
                         },
                         {
                             title: "星期日",
-                            value: 6
+                            value: "6"
                         }
                     ]
                 },
