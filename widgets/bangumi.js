@@ -59,12 +59,19 @@ async function loadCalendar(params = {}) {
     try {
         const response = await Widget.http.get("https://bangumi.space4.workers.dev/calendar");
         if (response.data) {
-            const weekday = Number(params.day) || 0;
             const data = response.data;
-            return data[weekday].items.map((bangumi) => ({
-                id: `tv.${bangumi.tmdb_id}`,
+            const weekday = Number(params.day) || 0;
+            const bangumi_ids = data[weekday].items.map((bangumi) => ({
+                title: bangumi.name_cn && bangumi.name_cn.trim() !== "" ? bangumi.name_cn : bangumi.name,
+                id: String(bangumi.tmdb_id),
+                posterPath: bangumi.images.large,
+                releaseDate: bangumi.air_date,
+                rating: bangumi.score,
                 type: "tmdb",
+                mediaType: "tv",
             }));
+            console.log(bangumi_ids);
+            return bangumi_ids;
         } else {
             console.error("无法获取数据");
             throw new Error("无法获取数据");
