@@ -4,7 +4,7 @@ WidgetMetadata = {
     description: "Bangumi",
     author: "Space4",
     site: "https://github.com/space4yyy",
-    version: "1.0.1",
+    version: "1.0.2",
     requiredVersion: "0.0.1",
     modules: [
         {
@@ -63,7 +63,7 @@ async function loadCalendar(params = {}) {
             const weekday = Number(params.day) || 0;
             const bangumi_ids = data[weekday].items.map((bangumi) => ({
                 title: bangumi.name_cn && bangumi.name_cn.trim() !== "" ? bangumi.name_cn : bangumi.name,
-                id: bangumi.tmdb_id !== undefined && bangumi.tmdb_id !== null && bangumi.tmdb_id !== "" ? String(bangumi.tmdb_id) : null,
+                id: bangumi.tmdb_id !== undefined && bangumi.tmdb_id !== null && bangumi.tmdb_id !== "" ? String(bangumi.tmdb_id) : "",
                 posterPath: bangumi.images.large,
                 releaseDate: bangumi.air_date,
                 rating: bangumi.score,
